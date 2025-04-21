@@ -32,7 +32,7 @@ wss.on('connection', ws => {
         {
             type: 'userJoined',
             datetime: `${currentTime()}`,
-            message: `You joined the chat as user ${clientId}`
+            msg: `You joined the chat as user ${clientId}`
         }
     ));
     // Notify other clients about the new user
@@ -42,7 +42,7 @@ wss.on('connection', ws => {
                 {
                     type: 'userJoined',
                     datetime: `${currentTime()}`,
-                    message: `User ${clientId} joined the chat`
+                    msg: `User ${clientId} joined the chat`
                 }
             ));
         }
@@ -57,7 +57,7 @@ wss.on('connection', ws => {
                         type: 'newMessage', 
                         sender: clientId,
                         datetime: `${currentTime()}`,
-                        text: message.toString()
+                        msg: message.toString()
                     }
                 ));
             }
@@ -73,7 +73,7 @@ wss.on('connection', ws => {
                     {
                         type: 'userLeft',
                         datetime: `${currentTime()}`,
-                        message: `User ${clientId} left the chat`
+                        msg: `User ${clientId} left the chat`
                     }
                 ));
             }
